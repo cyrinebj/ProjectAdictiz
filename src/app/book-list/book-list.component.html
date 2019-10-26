@@ -1,0 +1,31 @@
+<div class="container text-center">
+
+    <mat-card-title> BOOKS</mat-card-title>
+</div>
+<div class="container">
+    <div class="search-hero">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; 
+        effectuer une recherche">
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Les auteurs</th>
+                <th>Catégorie</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let BookList of BookLists | filter:searchText">
+                <a [routerLink]="[ '/Single',  BookList.selfLink]">
+                    <td>{{ BookList.volumeInfo.title }}</td>
+                    <td>{{ BookList.volumeInfo.authors }}</td>
+                    <td>{{ BookList.volumeInfo.categories }}</td>
+                </a>
+
+
+            </tr>
+        </tbody>
+    </table>
+
+</div>
